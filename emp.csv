@@ -1,0 +1,16 @@
+﻿employee_id,name,branch_id,role
+1,Kidus Addis,1,Manger
+2,Marco Bianchi,1,Reception
+3,Paolo Conti,1,Mechanic
+4,Davide Greco,1,Mechanic
+5,Andrea Romano,1,Mechanic
+6,Degelaw,2,Manger
+7,Stefano Moretti,2,recep
+8,Matteo Gallo,2,Mechanic
+9,Simone Ferri,2,Mechanic
+10,Alessandro Riva,2,Mechanic
+11,Pupusha,3,Manger
+12,Riccardo Sala,3,recep
+13,Lorenzo Villa,3,Mechanic
+14,Nicola Marchetti,3,Mechanic
+15,Fabio De Luca,3,Mechanic
