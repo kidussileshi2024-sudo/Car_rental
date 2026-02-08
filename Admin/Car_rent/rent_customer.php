@@ -1,5 +1,5 @@
 <?php
-require "db.php";
+require "../db.php";
 
 $car_id = $_POST['car_id'];
 $employee_id = $_POST['employee_id'];

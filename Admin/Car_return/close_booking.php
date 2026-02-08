@@ -1,5 +1,5 @@
 <?php
-require "db.php";
+require "../db.php";
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -48,7 +48,7 @@ if($fine == 0){
 
     <html>
     <body>
-    <form method="post" action="rent_payment.php">
+    <form method="post" action="../Payment/rent_payment.php">
         <input type="hidden" name="b_id" value="<?= $b_id ?>">
         <input type="hidden" name="Type" value="Booking">
         <input type="hidden" name="cu_id" value="<?= $customer_id ?>">
@@ -78,7 +78,7 @@ if($fine == 0){
 
     <html>
     <body>
-    <form method="post" action="rent_payment.php">
+    <form method="post" action="../Payment/rent_payment.php">
         <input type="hidden" name="b_id" value="<?= $b_id ?>">
         <input type="hidden" name="Type" value="Booking">
         <input type="hidden" name="fine" value="<?= $fine ?>">

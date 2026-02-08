@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-require "db.php";
+require "../db.php";
 
 /* common fields */
 $b_id        = $_POST['b_id'];
@@ -38,7 +38,7 @@ mysqli_commit($conn);
         <!-- NO FINE → FINISH -->
         <h3>Booking payment completed</h3>
 
-        <form method="post" action="rent_done.php">
+        <form method="post" action="../Car_rent/rent_done.php">
             <input type="hidden" name="b_id" value="<?= $b_id ?>">
             <input type="hidden" name="Type" value="Booking">
             <input type="submit" value="Finish Rental">
@@ -63,7 +63,7 @@ mysqli_commit($conn);
     <!-- FINE PAYMENT FINISHED -->
     <h3>Fine payment completed</h3>
 
-    <form method="post" action="rent_done.php">
+    <form method="post" action="../Car_rent/rent_done.php">
         <input type="hidden" name="b_id" value="<?= $b_id ?>">
         <input type="hidden" name="Type" value="Fine">
         <input type="submit" value="Finish Rental">

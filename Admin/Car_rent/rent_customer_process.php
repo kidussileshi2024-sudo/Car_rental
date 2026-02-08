@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require "db.php";
+require "../db.php";
 
 $car_id = $_POST['car_id'];
 $employee_id = $_POST['employee_id'];

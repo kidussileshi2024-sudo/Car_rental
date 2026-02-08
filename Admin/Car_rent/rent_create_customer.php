@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require "db.php";
+require "../db.php";
 
 $name = $_POST['name'];
 $address = $_POST['address'];

@@ -1,4 +1,4 @@
-<?php require "db.php";
+<?php require "../db.php";
 
 /* get categories */
 $cats = mysqli_query($conn, "SELECT * FROM Category ORDER BY Name");

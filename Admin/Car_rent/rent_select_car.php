@@ -1,5 +1,5 @@
 <?php
-require "db.php";
+require "../db.php";
 
 $employee_id = $_POST['employee_id'];
 $cats = $_POST['cat'] ?? [];

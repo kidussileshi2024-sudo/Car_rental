@@ -1,5 +1,5 @@
 <?php
-require "db.php";
+require "../db.php";
 
 $phone = $_POST['phone'];
 $employee_id = $_POST['employee_id'];

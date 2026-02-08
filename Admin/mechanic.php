@@ -48,7 +48,7 @@ if(mysqli_num_rows($check_ins) > 0){
 
 <h2>Mechanic Inspection</h2>
 
-<form method="post" action="save_inspection.php">
+<form method="post" action="Mechanic/save_inspection.php">
 
 <!-- mechanic dropdown -->
 Mechanic:

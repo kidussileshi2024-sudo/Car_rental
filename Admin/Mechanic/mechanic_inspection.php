@@ -2,7 +2,7 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-require "db.php"; 
+require "../db.php"; 
 
 $sql = "SELECT I_id,Em_id, Book_id, Car_id FROM Inspection WHERE Inspection_done=0 LIMIT 1";
 $result = mysqli_query($conn, $sql);

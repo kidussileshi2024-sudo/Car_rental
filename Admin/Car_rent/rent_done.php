@@ -1,5 +1,5 @@
 <?php
-require "db.php";
+require "../db.php";
 $b_id = $_POST['b_id'];
 $Type = $_POST['Type'];
 ?>
@@ -13,6 +13,6 @@ $Type = $_POST['Type'];
 <p>Booking ID: <?= $b_id ?></p>
 <p><?php echo $Type; ?> Payment recorded.</p>
 
-<a href="admin_home.php">Back to Admin Panel</a>
+<a href="../admin_home.php">Back to Admin Panel</a>
 </body>
 </html>
