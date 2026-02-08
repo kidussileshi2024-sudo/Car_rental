@@ -1,7 +1,7 @@
 <?php
 require "db.php";
-$b_id = $_GET['b_id'];
-$Type = $_GET['Type'];
+$b_id = $_POST['b_id'];
+$Type = $_POST['Type'];
 ?>
 
 <!DOCTYPE html>

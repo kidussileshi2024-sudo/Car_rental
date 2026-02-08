@@ -22,13 +22,20 @@ if (mysqli_num_rows($res) == 1) {
     /* customer exists */
     $cust = mysqli_fetch_assoc($res);
     $customer_id = $cust['C_id'];
+    $customer_name = $cust['Name'];
 
     ?>
-    <form method="post" action="rent_payment.php">
+    <!DOCTYPE html>
+    <html>  
+        <h2>Customer Found</h2>
+        <p>Customer Name: <?= $customer_name ?></p>
+        </html> 
+    <form method="post" action="Car_rented.php">
         <input type="hidden" name="car_id" value="<?= $car_id ?>">
         <input type="hidden" name="cu_id" value="<?= $customer_id ?>">
         <input type="hidden" name="employee_id" value="<?= $employee_id ?>">
-        <input type="submit" value="Continue to payment">
+        
+        <input type="submit" value="confirm Booking">
     </form>
     <?php
     exit;

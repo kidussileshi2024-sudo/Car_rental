@@ -26,7 +26,7 @@ if (!mysqli_query($conn, $sql)) {
 
 
 $check = mysqli_query($conn,"SELECT * FROM inspection WHERE Book_id=$b_id AND Inspection_done=1");
-
+echo "Booking ID: $b_id, Car ID: $car_id, Employee ID: $employee_id, Check rows: ".mysqli_num_rows($check)."<br>";
 if(mysqli_num_rows($check)==0){
     die("Inspection not completed yet. Wait for mechanic.");
 }

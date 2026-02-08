@@ -26,11 +26,11 @@ if (!mysqli_query($conn, $sql)) {
 $customer_id = mysqli_insert_id($conn);
 
 ?>
-<form method="post" action="rent_payment.php">
+<form method="post" action="Car_rented.php">
     <input type="hidden" name="car_id" value="<?= $car_id ?>">
     <input type="hidden" name="cu_id" value="<?= $customer_id ?>">
     <input type="hidden" name="employee_id" value="<?=$employee_id ?>">
-    <input type="submit" value="Continue to payment">
+    <input type="submit" value="Finish Rental">
 </form>
 <?php
 exit;
