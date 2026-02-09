@@ -3,10 +3,10 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 require "../db.php";
 
-/* common fields */
+
 $b_id        = $_POST['b_id'];
 $amount      = $_POST['amount'];
-$Type        = $_POST['Type'];      // Booking or Fine
+$Type        = $_POST['Type'];      
 $Method      = $_POST['Method'];
 $Invoice     = $_POST['Invoice'];
 $employee_id = $_POST['employee_id'];
@@ -14,7 +14,7 @@ $fine        = $_POST['fine'] ?? 0;
 
 mysqli_begin_transaction($conn);
 
-/* ===== INSERT PAYMENT ===== */
+
 $sql = "
 INSERT INTO Payment (B_id, Type, Invoice, Method, Emp_id, Amount)
 VALUES ($b_id, '$Type', '$Invoice', '$Method', $employee_id, $amount)
@@ -35,7 +35,7 @@ mysqli_commit($conn);
 <?php if ($Type == "Booking"): ?>
 
     <?php if ($fine == 0 || $fine == "" || $fine == null): ?>
-        <!-- NO FINE → FINISH -->
+       
         <h3>Booking payment completed</h3>
 
         <form method="post" action="../Car_rent/rent_done.php">
@@ -45,7 +45,6 @@ mysqli_commit($conn);
         </form>
 
     <?php else: ?>
-        <!-- FINE EXISTS → GO TO FINE PAYMENT -->
         <h3>Booking payment completed</h3>
         <p>Fine detected. Fine payment required.</p>
 
@@ -60,7 +59,7 @@ mysqli_commit($conn);
 
 <?php elseif ($Type == "Fine"): ?>
 
-    <!-- FINE PAYMENT FINISHED -->
+
     <h3>Fine payment completed</h3>
 
     <form method="post" action="../Car_rent/rent_done.php">

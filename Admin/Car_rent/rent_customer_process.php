@@ -8,7 +8,6 @@ $car_id = $_POST['car_id'];
 $employee_id = $_POST['employee_id'];
 $phone = $_POST['phone_no'];
 
-/* check customer */
 $res = mysqli_query(
     $conn,
     "SELECT * FROM Customers WHERE Phone_no='$phone'"
@@ -19,7 +18,6 @@ if (!$res) {
 }
 
 if (mysqli_num_rows($res) == 1) {
-    /* customer exists */
     $cust = mysqli_fetch_assoc($res);
     $customer_id = $cust['C_id'];
     $customer_name = $cust['Name'];
@@ -41,7 +39,6 @@ if (mysqli_num_rows($res) == 1) {
     exit;
 
 } else {
-    /* customer not exists → show form */
     ?>
     <!DOCTYPE html>
     <html>

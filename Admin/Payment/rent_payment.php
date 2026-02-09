@@ -3,10 +3,10 @@ require "../db.php";
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-/* booking payment only */
+
 $b_id        = $_POST['b_id'];
 $employee_id = $_POST['employee_id'];
-$amount      = $_POST['amount'];   // already calculated in close_booking
+$amount      = $_POST['amount'];  
 $type        = $_POST["Type"];
 $cu_id       = $_POST["cu_id"];
 $price = $_POST["price"];

@@ -6,7 +6,7 @@ ini_set('display_errors', 1);
 $ment_id = $_POST['ment_id'];
 $employee_id = $_POST['employee_id'];
 
-/* get maintenance + car info */
+
 $sql = "
 SELECT m.M_id, m.Car_id, c.Branch_id, c.Price_adjs
 FROM maintenance m
@@ -20,14 +20,14 @@ $car_id = $data['Car_id'];
 $branch_id = $data['Branch_id'];
 $current_adj = $data['Price_adjs'];
 
-/* check if mechanics already assigned */
+
 $check = mysqli_query($conn,"
 SELECT * FROM Employee_Maintenance WHERE Ment_id = $ment_id
 ");
 
 $has_team = mysqli_num_rows($check) > 0;
 
-/* get mechanics from same branch */
+
 $mech_res = mysqli_query($conn,"
 SELECT Emp_id, Name
 FROM employees

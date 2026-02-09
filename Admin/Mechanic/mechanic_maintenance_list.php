@@ -5,7 +5,6 @@ ini_set('display_errors', 1);
 
 $employee_id = $_POST['employee_id'];
 
-/* get mechanic info */
 $emp_res = mysqli_query($conn,"
 SELECT Emp_id, B_id
 FROM employees
@@ -18,9 +17,9 @@ if(mysqli_num_rows($emp_res) == 0){
 
 $emp = mysqli_fetch_assoc($emp_res);
 $branch_id = $emp['B_id'];
-echo"$branch_id";
 
-/* get maintenance jobs in same branch */
+
+
 $sql = "
 SELECT m.M_id, m.Car_id, c.Plate_no, m.Start_date, m.Description
 FROM maintenance m

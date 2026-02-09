@@ -5,8 +5,6 @@ $employee_id = $_POST['employee_id'];
 $cats = $_POST['cat'] ?? [];
 
 $branch_filter = "";
-
-/* If employee_id entered → filter by branch */
 if (!empty($employee_id)) {
     $res = mysqli_query($conn,
         "SELECT B_id FROM Employees WHERE Emp_id=$employee_id"
@@ -19,7 +17,7 @@ if (!empty($employee_id)) {
     }
 }
 
-/* category filter */
+
 $cat_filter = "";
 if (!empty($cats)) {
     $ids = implode(",", $cats);

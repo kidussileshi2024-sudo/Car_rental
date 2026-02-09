@@ -12,7 +12,7 @@ $mech_ids = $_POST['mech_ids'] ?? [];
 
 mysqli_begin_transaction($conn);
 
-/* assign mechanics */
+
 foreach($mech_ids as $mid){
     mysqli_query($conn,"
         INSERT INTO Employee_Maintenance(Emp_Id, Ment_id)
@@ -20,19 +20,17 @@ foreach($mech_ids as $mid){
     ");
 }
 
-/* update maintenance */
+
 mysqli_query($conn,"
 UPDATE maintenance
 SET End_date = CURDATE(), Description = '$description'
 WHERE M_id = $ment_id
 ");
 
-/* update car availability */
 mysqli_query($conn,"
 UPDATE cars SET IS_available = 1 WHERE C_id = $car_id
 ");
 
-/* update price adjustment if provided */
 if($price_adj !== null && $price_adj !== ""){
     mysqli_query($conn,"
     UPDATE cars SET Price_adjs = $price_adj WHERE C_id = $car_id

@@ -6,19 +6,23 @@ require "../db.php";
 
 $sql = "SELECT I_id,Em_id, Book_id, Car_id FROM Inspection WHERE Inspection_done=0 LIMIT 1";
 $result = mysqli_query($conn, $sql);
-if ($result) {
-     $row = mysqli_fetch_assoc($result);
-    $employee_id= $row["Em_id"];
-    $b_id = $row["Book_id"];
-    $car_id = $row["Car_id"];
-    $i_id = $row["I_id"];
-        #echo "Employee ID: " . $row['Em_id'] . ", Booking ID: " . $row['Book_id'] . ", Car ID: " . $row['Car_id'] . "<br>";
-    
-} else {
-    echo "Error: " . mysqli_error($conn);
+
+if (!$result) {
+    die("Error: " . mysqli_error($conn));
 }
 
-#echo"$i_id,$employee_id, $b_id, $car_id";
+if (mysqli_num_rows($result) == 0) {
+    echo "<h2>No inspections pending at this time</h2>";
+    exit;
+}
+
+$row = mysqli_fetch_assoc($result);
+$employee_id= $row["Em_id"];
+$b_id = $row["Book_id"];
+$car_id = $row["Car_id"];
+$i_id = $row["I_id"];
+
+
 $sql1 = " SELECT B_id FROM Employees 
 WHERE Emp_id = $employee_id";
 $branch_q = mysqli_query($conn,$sql1);
