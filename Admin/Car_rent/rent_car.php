@@ -1,6 +1,6 @@
 <?php require "../db.php";
 
-/* get categories */
+
 $cats = mysqli_query($conn, "SELECT * FROM Category ORDER BY Name");
 $rec= mysqli_query($conn,"SELECT Emp_id, Name FROM Employees WHERE Role='receptionist'");
 ?>

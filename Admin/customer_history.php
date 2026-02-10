@@ -10,7 +10,7 @@ if(isset($_POST['phone'])){
 
     $phone = $_POST['phone'];
 
-    $stmt = $conn->prepare("
+    $sql = "
         SELECT 
             cu.name,
             cu.phone_no,
@@ -30,21 +30,22 @@ if(isset($_POST['phone'])){
         JOIN cars c      ON b.Car_id = c.C_id
         JOIN models m    ON c.Model_id = m.M_id
 
-        WHERE cu.phone_no = ?
-        ORDER BY b.Start_date DESC;
-    ");
+        WHERE cu.phone_no = '$phone'
+        ORDER BY b.Start_date DESC
+    ";
 
-    $stmt->bind_param("s",$phone);
-    $stmt->execute();
-    $res = $stmt->get_result();
+    $res = mysqli_query($conn,$sql);
 
-    if($res->num_rows > 0){
-        while($row = $res->fetch_assoc()){
+    if(mysqli_num_rows($res) > 0){
+        while($row = mysqli_fetch_assoc($res)){
             $data[] = $row;
-            $customer = [
-                'name' => $row['name'],
-                'phone' => $row['phone_no']
-            ];
+
+            if($customer == null){
+                $customer = [
+                    'name' => $row['name'],
+                    'phone' => $row['phone_no']
+                ];
+            }
         }
     }else{
         $error = "No customer history found.";
@@ -54,8 +55,8 @@ if(isset($_POST['phone'])){
 
 <!DOCTYPE html>
 <html>
-<head>
     <link rel="stylesheet" href="style.css">
+<head>
     <title>Customer History</title>
 </head>
 <body>
