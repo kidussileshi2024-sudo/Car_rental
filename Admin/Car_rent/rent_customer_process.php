@@ -24,17 +24,24 @@ if (mysqli_num_rows($res) == 1) {
 
     ?>
     <!DOCTYPE html>
-    <html>  
+    <html>
+    <head>
+        <link rel="stylesheet" href="../style.css">
+        <title>Customer Found</title>
+    </head>
+    <body>
         <h2>Customer Found</h2>
-        <p>Customer Name: <?= $customer_name ?></p>
-        </html> 
+        
+       
     <form method="post" action="Car_rented.php">
+        <p>Customer Name: <?= $customer_name ?></p>
         <input type="hidden" name="car_id" value="<?= $car_id ?>">
         <input type="hidden" name="cu_id" value="<?= $customer_id ?>">
         <input type="hidden" name="employee_id" value="<?= $employee_id ?>">
         
         <input type="submit" value="confirm Booking">
     </form>
+    </html> 
     <?php
     exit;
 
@@ -42,6 +49,10 @@ if (mysqli_num_rows($res) == 1) {
     ?>
     <!DOCTYPE html>
     <html>
+    <head>
+        <link rel="stylesheet" href="../style.css">
+        <title>New Customer</title>
+    </head>
 
     <body>
 
@@ -53,7 +64,7 @@ if (mysqli_num_rows($res) == 1) {
 
             Name: <input name="name" required><br>
             Address: <input name="address" required><br>
-            License: <input name="driving_license_num" required><br>
+            Driving License: <input name="driving_license_num" required><br>
             Age: <input type="number" name="age"><br>
             Phone: <input name="phone_no" value="<?= $phone ?>" required><br><br>
 

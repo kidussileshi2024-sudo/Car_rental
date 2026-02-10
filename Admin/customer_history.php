@@ -54,6 +54,10 @@ if(isset($_POST['phone'])){
 
 <!DOCTYPE html>
 <html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Customer History</title>
+</head>
 <body>
 
 <h2>Customer Rental History</h2>

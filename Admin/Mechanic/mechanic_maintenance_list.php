@@ -33,6 +33,10 @@ $res = mysqli_query($conn, $sql);
 
 <!DOCTYPE html>
 <html>
+<head>
+    <link rel="stylesheet" href="../style.css">
+    <title>Maintenance Jobs</title>
+</head>
 <body>
 
 <h2>Maintenance Jobs - Branch <?= $branch_id ?></h2>

@@ -37,6 +37,10 @@ WHERE Role='Mechanic' AND B_id = $branch_id
 
 <!DOCTYPE html>
 <html>
+<head>
+    <link rel="stylesheet" href="../style.css">
+    <title>Maintenance Work</title>
+</head>
 <body>
 
 <h2>Maintenance Work</h2>

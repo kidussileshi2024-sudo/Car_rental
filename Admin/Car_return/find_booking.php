@@ -26,6 +26,10 @@ if(mysqli_num_rows($res)==0){
 
 <!DOCTYPE html>
 <html>
+<head>
+    <link rel="stylesheet" href="../style.css">
+    <title>Find Booking</title>
+</head>
 <body>
 
 <h3>Select Active Rental</h3>

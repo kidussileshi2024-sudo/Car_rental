@@ -30,6 +30,10 @@ mysqli_commit($conn);
 
 <!DOCTYPE html>
 <html>
+<head>
+    <link rel="stylesheet" href="../style.css">
+    <title>Payment Finalized</title>
+</head>
 <body>
 
 <?php if ($Type == "Booking"): ?>
@@ -45,10 +49,11 @@ mysqli_commit($conn);
         </form>
 
     <?php else: ?>
-        <h3>Booking payment completed</h3>
-        <p>Fine detected. Fine payment required.</p>
+        <h2>Booking payment completed</h2>
+       
 
         <form method="post" action="fine_payment.php">
+             <p>Fine detected. Fine payment required.</p>
             <input type="hidden" name="b_id" value="<?= $b_id ?>">
             <input type="hidden" name="fine" value="<?= $fine ?>">
             <input type="hidden" name="employee_id_fine" value="<?= $employee_id ?>">

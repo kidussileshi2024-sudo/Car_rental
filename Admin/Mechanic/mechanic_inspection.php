@@ -45,6 +45,10 @@ if(!$mech_q) die(mysqli_error($conn));
 ?>
 <!DOCTYPE html>
 <html>
+<head>
+    <link rel="stylesheet" href="../style.css">
+    <title>Mechanic Inspection</title>
+</head>
 <body>
 
 <h2>Mechanic Inspection</h2>

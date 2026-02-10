@@ -16,13 +16,18 @@ $fine = $_POST['fine'] ?? 0;
 ?>
 <!DOCTYPE html>
 <html>
+<head>
+    <link rel="stylesheet" href="../style.css">
+    <title>Booking Payment</title>
+</head>
 <body>
 
 <h2>Booking Payment</h2>
 
-<p>Rental Price to Pay: €<?= number_format($amount,2) ?></p>
+
 
 <form method="post" action="rent_finalize.php">
+    <p>Rental Price to Pay: €<?= number_format($amount,2) ?></p>
 
     <input type="hidden" name="b_id" value="<?= $b_id ?>">
     <input type="hidden" name="Type" value="Booking">

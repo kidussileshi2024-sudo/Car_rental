@@ -2,10 +2,16 @@
 
 /* get categories */
 $cats = mysqli_query($conn, "SELECT * FROM Category ORDER BY Name");
+$rec= mysqli_query($conn,"SELECT Emp_id, Name FROM Employees WHERE Role='receptionist'");
 ?>
+
 
 <!DOCTYPE html>
 <html>
+<head>
+    <link rel="stylesheet" href="../style.css">
+    <title>Rent a Car</title>
+</head>
 <body>
 
 <h2>Rent a Car</h2>
@@ -13,7 +19,15 @@ $cats = mysqli_query($conn, "SELECT * FROM Category ORDER BY Name");
 <form method="post" action="rent_select_car.php">
 
 Employee ID :  
-<input type="number" name="employee_id" required><br><br>
+<select name="employee_id" required>
+    <option value="">-- Select Receptionist --</option>
+    <?php while($e = mysqli_fetch_assoc($rec)): ?>
+        <option value="<?= $e['Emp_id'] ?>">
+            <?= $e['Name'] ?> (ID: <?= $e['Emp_id'] ?>)
+        </option>
+    <?php endwhile; ?>
+</select>
+<br>
 
 <h3>Select categories</h3>
 

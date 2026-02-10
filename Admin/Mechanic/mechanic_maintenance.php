@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <link rel="stylesheet" href="../style.css">
+    <title>Mechanic Maintenance</title>
+</head>
 <body>
 
 <h2>Mechanic Maintenance Panel</h2>

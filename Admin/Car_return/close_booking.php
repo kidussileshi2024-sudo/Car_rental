@@ -46,6 +46,10 @@ if($fine == 0){
     ?>
 
     <html>
+    <head>
+        <link rel="stylesheet" href="../style.css">
+        <title>Close Booking</title>
+    </head>
     <body>
         <h2 >The car is avialabe for rent again.</h2>
     <form method="post" action="../Payment/rent_payment.php">
@@ -76,9 +80,14 @@ if($fine == 0){
     mysqli_commit($conn);
     ?>
 
+    <!DOCTYPE html>
     <html>
+    <head>
+        <link rel="stylesheet" href="../style.css">
+        <title>Maintenance Required</title>
+    </head>
     <body>
-        <h2 >The car is sent to maintenance due to damage found during inspection.</h2>
+        <h3 >The car is sent to maintenance due to damage found during inspection.</32>
     <form method="post" action="../Payment/rent_payment.php">
         <input type="hidden" name="b_id" value="<?= $b_id ?>">
         <input type="hidden" name="Type" value="Booking">

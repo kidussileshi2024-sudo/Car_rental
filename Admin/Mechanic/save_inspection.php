@@ -19,6 +19,17 @@ WHERE i_id = $in_id";
 if(!mysqli_query($conn,$sql)){
     die(mysqli_error($conn));
 }
-
-echo "Inspection saved. Receptionist can now close booking.";
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../style.css">
+    <title>Inspection Saved</title>
+</head>
+<body>
+    <h2>Inspection Saved</h2>
+    <p>Inspection saved. Receptionist can now close booking.</p>
+    <a href="mechanic_home.php">Back to Mechanic Panel</a>
+</body>
+</html>

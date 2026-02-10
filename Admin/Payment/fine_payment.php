@@ -11,13 +11,18 @@ $type        = "Fine";
 ?>
 <!DOCTYPE html>
 <html>
+<head>
+    <link rel="stylesheet" href="../style.css">
+    <title>Fine Payment</title>
+</head>
 <body>
 
 <h2>Fine Payment</h2>
 
-<p>Fine Amount to Pay: €<?= number_format($fine,2) ?></p>
+
 
 <form method="post" action="rent_finalize.php">
+    <p>Fine Amount to Pay: €<?= number_format($fine,2) ?></p>
 
     <input type="hidden" name="b_id" value="<?= $b_id ?>">
     <input type="hidden" name="amount" value="<?= $fine ?>">

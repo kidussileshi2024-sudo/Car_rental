@@ -30,11 +30,20 @@ if(mysqli_num_rows($check)==0){
 $insp = mysqli_fetch_assoc($check);
 ?>
 
-<h3>Inspection Result</h3>
-Damage: <?= $insp['Damages'] ?><br>
-Fine: €<?= $insp['Fine'] ?><br><br>
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../style.css">
+    <title>Inspection Result</title>
+</head>
+<body>
+
+<h2>Inspection Result</h2>
+
 
 <form method="post" action="close_booking.php">
+    Damage: <?= $insp['Damages'] ?><br>
+    Fine: €<?= $insp['Fine'] ?><br><br>
     <input type="hidden" name="b_id" value="<?= $b_id ?>">
     <input type="hidden" name="car_id" value="<?= $car_id ?>">
     <input type="hidden" name="fine" value="<?= $insp['Fine'] ?>">

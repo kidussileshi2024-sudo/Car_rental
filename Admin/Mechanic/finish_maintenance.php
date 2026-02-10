@@ -42,13 +42,18 @@ mysqli_commit($conn);
 
 <!DOCTYPE html>
 <html>
+<head>
+    <link rel="stylesheet" href="../style.css">
+    <title>Maintenance Completed</title>
+</head>
 <body>
 
 <h2>Maintenance Completed</h2>
 
-<p>Car is now available for rent.</p>
+
 
 <form method="post" action="mechanic_maintenance.php">
+    <p>Car is now available for rent.</p>
     <input type="submit" value="Back to Maintenance List">
 </form>
 

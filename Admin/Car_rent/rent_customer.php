@@ -7,6 +7,10 @@ $employee_id = $_POST['employee_id'];
 
 <!DOCTYPE html>
 <html>
+<head>
+    <link rel="stylesheet" href="../style.css">
+    <title>Customer Identification</title>
+</head>
 <body>
 
 <h2>Customer Identification</h2>

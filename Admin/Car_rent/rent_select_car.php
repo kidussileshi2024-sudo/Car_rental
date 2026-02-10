@@ -39,19 +39,33 @@ $res = mysqli_query($conn, $sql);
 
 <!DOCTYPE html>
 <html>
+<head>
+    <link rel="stylesheet" href="../style.css">
+    <title>Select Car</title>
+<?php if(mysqli_num_rows($res) == 0): ?>
+    <h3>No cars available matching the selected criteria.</h3>
+    <a href="rent_car.php">Go back</a>
+    <?php exit; ?>
+<?php endif; ?>
+</head>
+<html>
 <body>
 
 <h2>Available Cars</h2>
 
-<?php while($car = mysqli_fetch_assoc($res)): 
+
+<?php 
+
+    while($car = mysqli_fetch_assoc($res)): 
     $price = $car['Price_per_day'] * (1 - $car['Price_adjs']);
 ?>
-<hr>
+
+<form method="post" action="rent_customer.php"> 
 <?= $car['Brand']." ".$car['Name'] ?> (<?= $car['Fule_type'] ?>)<br>
 Color: <?= $car['color'] ?><br>
 Price/day: €<?= number_format($price,2) ?><br>
 
-<form method="post" action="rent_customer.php">
+
     <input type="hidden" name="car_id" value="<?= $car['C_id'] ?>">
     <input type="hidden" name="employee_id" value="<?= $employee_id ?>">
     <input type="submit" value="Select this car">

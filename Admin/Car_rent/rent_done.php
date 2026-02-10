@@ -6,6 +6,10 @@ $Type = $_POST['Type'];
 
 <!DOCTYPE html>
 <html>
+<head>
+    <link rel="stylesheet" href="../style.css">
+    <title>Payment Completed</title>
+</head>
 <body>
 
 <h2>Payment Completed</h2>

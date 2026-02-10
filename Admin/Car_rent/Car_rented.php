@@ -24,6 +24,10 @@ if (!mysqli_query($conn, $sql2)) {
 ?>
 <!DOCTYPE html>
 <html>
+<head>
+    <link rel="stylesheet" href="../style.css">
+    <title>Booking Completed</title>
+</head>
 <body>
 
 <h2>Booking Completed</h2>
