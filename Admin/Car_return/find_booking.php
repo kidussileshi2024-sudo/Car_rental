@@ -9,11 +9,15 @@ SELECT b.B_id, b.Car_id, c.Plate_no
 FROM booking b
 JOIN cars c ON b.Car_id = c.C_id
 JOIN customers cu ON b.Cu_id = cu.C_id
-WHERE cu.phone_no = '$phone'
-  AND c.IS_available = 0 AND b.End_date IS NULL;
+WHERE cu.phone_no = ?
+  AND c.IS_available = 0 
+  AND b.End_date IS NULL
 ";
 
-$res = mysqli_query($conn,$sql);
+$stmt = mysqli_prepare($conn, $sql);
+mysqli_stmt_bind_param($stmt, "s", $phone);
+mysqli_stmt_execute($stmt);
+$res = mysqli_stmt_get_result($stmt);
 
 if(!$res){
     die("SQL Error: " . mysqli_error($conn));

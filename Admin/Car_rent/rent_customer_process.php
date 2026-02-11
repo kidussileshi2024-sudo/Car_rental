@@ -8,11 +8,10 @@ $car_id = $_POST['car_id'];
 $employee_id = $_POST['employee_id'];
 $phone = $_POST['phone_no'];
 
-$res = mysqli_query(
-    $conn,
-    "SELECT * FROM Customers WHERE Phone_no='$phone'"
-);
-
+$stmt = mysqli_prepare($conn,"SELECT * FROM customers WHERE phone_no=?");
+mysqli_stmt_bind_param($stmt,"s",$phone);
+mysqli_stmt_execute($stmt);
+$res = mysqli_stmt_get_result($stmt);
 if (!$res) {
     die(mysqli_error($conn));
 }

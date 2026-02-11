@@ -10,46 +10,49 @@ if(isset($_POST['phone'])){
 
     $phone = $_POST['phone'];
 
-    $sql = "
-        SELECT 
-            cu.name,
-            cu.phone_no,
+$sql = "
+    SELECT 
+        cu.name,
+        cu.phone_no,
 
-            b.B_id,
-            b.Start_date,
-            b.End_date,
+        b.B_id,
+        b.Start_date,
+        b.End_date,
 
-            c.Plate_no,
-            c.IS_available,
+        c.Plate_no,
+        c.IS_available,
 
-            m.brand,
-            m.Name
+        m.brand,
+        m.Name
 
-        FROM customers cu
-        JOIN booking b   ON cu.C_id = b.Cu_id
-        JOIN cars c      ON b.Car_id = c.C_id
-        JOIN models m    ON c.Model_id = m.M_id
+    FROM customers cu
+    JOIN booking b   ON cu.C_id = b.Cu_id
+    JOIN cars c      ON b.Car_id = c.C_id
+    JOIN models m    ON c.Model_id = m.M_id
 
-        WHERE cu.phone_no = '$phone'
-        ORDER BY b.Start_date DESC
-    ";
+    WHERE cu.phone_no = ?
+    ORDER BY b.Start_date DESC
+";
 
-    $res = mysqli_query($conn,$sql);
+$stmt = mysqli_prepare($conn, $sql);
+mysqli_stmt_bind_param($stmt, "s", $phone);
+mysqli_stmt_execute($stmt);
+$res = mysqli_stmt_get_result($stmt);
 
-    if(mysqli_num_rows($res) > 0){
-        while($row = mysqli_fetch_assoc($res)){
-            $data[] = $row;
+if(mysqli_num_rows($res) > 0){
+    while($row = mysqli_fetch_assoc($res)){
+        $data[] = $row;
 
-            if($customer == null){
-                $customer = [
-                    'name' => $row['name'],
-                    'phone' => $row['phone_no']
-                ];
-            }
+        if($customer == null){
+            $customer = [
+                'name'  => $row['name'],
+                'phone' => $row['phone_no']
+            ];
         }
-    }else{
-        $error = "No customer history found.";
     }
+}else{
+    $error = "No customer history found.";
+}
 }
 ?>
 
