@@ -48,5 +48,6 @@ $insp = mysqli_fetch_assoc($check);
     <input type="hidden" name="car_id" value="<?= $car_id ?>">
     <input type="hidden" name="fine" value="<?= $insp['Fine'] ?>">
     <input type="hidden" name="employee_id" value="<?= $employee_id ?>">
+    <input type="hidden" name="damage" value="<?= $insp['Damages'] ?>">
     <input type="submit" value="Close Booking">
 </form>

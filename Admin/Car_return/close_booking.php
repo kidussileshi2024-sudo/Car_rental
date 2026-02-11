@@ -7,6 +7,7 @@ $b_id = $_POST['b_id'];
 $car_id = $_POST['car_id'];
 $fine = $_POST['fine'];
 $employee_id = $_POST['employee_id'];
+$damage = $_POST['damage'];
 
 mysqli_begin_transaction($conn);
 
@@ -74,7 +75,7 @@ if($fine == 0){
 
 
     mysqli_query($conn,"INSERT INTO maintenance (Car_id, Start_date, Description)
-        VALUES ($car_id, CURDATE(), 'Damage from inspection')
+        VALUES ($car_id, CURDATE(), 'Damage from inspection: $damage')
     ");
 
     mysqli_commit($conn);
