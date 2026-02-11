@@ -5,11 +5,16 @@ ini_set('display_errors', 1);
 
 $employee_id = $_POST['employee_id'];
 
-$emp_res = mysqli_query($conn,"
+$sql = "
 SELECT Emp_id, B_id
 FROM employees
-WHERE Emp_id = $employee_id AND Role = 'Mechanic'
-");
+WHERE Emp_id = ? AND Role = 'Mechanic'
+";
+
+$stmt = mysqli_prepare($conn, $sql);
+mysqli_stmt_bind_param($stmt, "i", $employee_id); 
+mysqli_stmt_execute($stmt);
+$emp_res = mysqli_stmt_get_result($stmt);
 
 if(mysqli_num_rows($emp_res) == 0){
     die("Invalid mechanic ID.");
